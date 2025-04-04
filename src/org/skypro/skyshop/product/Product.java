@@ -1,13 +1,21 @@
 package org.skypro.skyshop.product;
 
-public class Product {
-    private String productName;
-    private int productPrice;
+public abstract class Product {
+    protected String productName;
 
-
-    public int getProductPrice() {
-        return productPrice;
+    public Product(String productName) {
+    this.productName = productName;
     }
+
+
+    //private int productPrice;
+
+    //public Product(String productName) {
+      //  this.productName = productName;
+    //}
+
+
+    public abstract int getProductPrice();
 
     public String getProductName() {
         return productName;
@@ -15,7 +23,7 @@ public class Product {
 
     public void setProduct(String productName, int productPrice) {
         this.productName = productName;
-        this.productPrice = productPrice;
+        //this.productPrice = productPrice;
     }
 
     //форматирование строки
@@ -23,4 +31,6 @@ public class Product {
     public String toString() {
         return getProductName() + " : " + getProductPrice();
     }
+
+
 }
