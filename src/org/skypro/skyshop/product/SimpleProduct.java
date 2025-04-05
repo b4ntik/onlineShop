@@ -5,9 +5,10 @@ public class SimpleProduct extends Product {
 
 
     public SimpleProduct(String productName, int productPrice) {
-       super(productName);
-       this.productPrice = productPrice;
+        super(productName);
+        this.productPrice = productPrice;
     }
+
     @Override
     public int getProductPrice() {
         return productPrice;
@@ -17,5 +18,12 @@ public class SimpleProduct extends Product {
     public String toString() {
         return getProductName() + " : " + getProductPrice();
     }
+
+    @Override
+    public void setProduct(String productName, int productPrice) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
+
 }
 

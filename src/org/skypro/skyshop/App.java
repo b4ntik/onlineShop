@@ -2,14 +2,16 @@ package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
         SimpleProduct product1 = new SimpleProduct("Молоко", 100);
-        DiscountedProduct product2 = new DiscountedProduct("Хлеб", 50);
+        DiscountedProduct product2 = new DiscountedProduct("Хлеб", 50, 10);
         SimpleProduct product3 = new SimpleProduct("стол", 500);
+        FixPriceProduct product4 = new FixPriceProduct("Салфетки");
 
         ProductBasket basket = new ProductBasket();
 
@@ -22,6 +24,7 @@ public class App {
         basket.setUserBasket(product1);
         basket.setUserBasket(product3);
         basket.setUserBasket(product2);
+        basket.setUserBasket(product4);
 
         //выводим созданные продукты
         System.out.println(product1.getProductName() + " : " + product1.getProductPrice());
@@ -40,7 +43,7 @@ public class App {
         //добавление товаров в существующую корзину с превышением лимита
         basket.setUserBasket(product3);
         //basket.setUserBasket(product3);
-       // basket.setUserBasket(product3);
+        // basket.setUserBasket(product3);
 
         //вывод состава полной корзины
         basket.printBasketComposition();
@@ -60,10 +63,7 @@ public class App {
         //поиск товара в пустой корзине
         System.out.println(basket.findProduct(""));
 
-        //применим скидку к product1
-        DiscountedProduct product4 = new DiscountedProduct("Топленое молоко", 120);
-        //DiscountedProduct.product4("Топленое молоко");
-        basket.setUserBasket(product4);
-        basket.printBasketComposition();
+
+        //basket.printBasketComposition();
     }
 }

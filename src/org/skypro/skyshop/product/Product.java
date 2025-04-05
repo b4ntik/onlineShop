@@ -4,16 +4,12 @@ public abstract class Product {
     protected String productName;
 
     public Product(String productName) {
-    this.productName = productName;
+        this.productName = productName;
     }
 
-
-    //private int productPrice;
-
-    //public Product(String productName) {
-      //  this.productName = productName;
-    //}
-
+    public boolean isSpecial() {
+        return false;
+    }
 
     public abstract int getProductPrice();
 
@@ -21,9 +17,8 @@ public abstract class Product {
         return productName;
     }
 
-    public void setProduct(String productName, int productPrice) {
+    public void setProduct(String productName) {
         this.productName = productName;
-        //this.productPrice = productPrice;
     }
 
     //форматирование строки
@@ -33,4 +28,5 @@ public abstract class Product {
     }
 
 
+    public abstract void setProduct(String productName, int basePrice);
 }
