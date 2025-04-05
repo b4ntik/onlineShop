@@ -42,8 +42,8 @@ public class App {
 
         //добавление товаров в существующую корзину с превышением лимита
         basket.setUserBasket(product3);
-        //basket.setUserBasket(product3);
-        // basket.setUserBasket(product3);
+        basket.setUserBasket(product3);
+        basket.setUserBasket(product3);
 
         //вывод состава полной корзины
         basket.printBasketComposition();
@@ -63,7 +63,5 @@ public class App {
         //поиск товара в пустой корзине
         System.out.println(basket.findProduct(""));
 
-
-        //basket.printBasketComposition();
     }
 }
