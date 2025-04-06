@@ -1,24 +1,30 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
-        Product product1 = new Product();
-        Product product2 = new Product();
-        Product product3 = new Product();
+        SimpleProduct product1 = new SimpleProduct("Молоко", 100);
+        DiscountedProduct product2 = new DiscountedProduct("Хлеб", 50, 10);
+        SimpleProduct product3 = new SimpleProduct("стол", 500);
+        FixPriceProduct product4 = new FixPriceProduct("Салфетки");
+
         ProductBasket basket = new ProductBasket();
 
-        //создаем объекты с парой товар : цена
-        product1.setProduct("Молоко", 100);
-        product2.setProduct("Хлеб", 50);
-        product3.setProduct("стол", 500);
+        //изменяем объекты с парой товар : цена
+        product1.setProduct("Топленое молоко", 150);
+        product2.setProduct("Хлеб черный", 40);
+        product3.setProduct("Стул", 500);
 
         //добавка товаров в корзину
         basket.setUserBasket(product1);
         basket.setUserBasket(product3);
         basket.setUserBasket(product2);
+        basket.setUserBasket(product4);
 
         //выводим созданные продукты
         System.out.println(product1.getProductName() + " : " + product1.getProductPrice());
@@ -29,7 +35,7 @@ public class App {
         basket.printBasketComposition();
 
         //поиск продукта в корзине
-        System.out.println(basket.findProduct("Хлеб"));
+        System.out.println(basket.findProduct("Хлеб черный"));
 
         //поиск несуществующего товара в корзине
         System.out.println(basket.findProduct("zqqwf"));
@@ -56,5 +62,6 @@ public class App {
 
         //поиск товара в пустой корзине
         System.out.println(basket.findProduct(""));
+
     }
 }
