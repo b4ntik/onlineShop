@@ -26,6 +26,7 @@ public class DiscountedProduct extends Product {
         return true;
     }
 
+
     public void setProduct(String productName, int basePrice) {
         this.productName = productName;
         this.basePrice = basePrice;

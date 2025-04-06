@@ -17,6 +17,7 @@ public class FixPriceProduct extends Product {
         return getProductName() + " : " + "Фиксированная цена " + getProductPrice();
     }
 
+
     @Override
     public boolean isSpecial() {
         return true;

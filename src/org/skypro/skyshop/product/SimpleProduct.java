@@ -19,6 +19,7 @@ public class SimpleProduct extends Product {
         return getProductName() + " : " + getProductPrice();
     }
 
+
     public void setProduct(String productName, int productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;

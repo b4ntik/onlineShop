@@ -17,6 +17,7 @@ public abstract class Product {
         return productName;
     }
 
+
     //форматирование строки
     @Override
     public String toString() {
