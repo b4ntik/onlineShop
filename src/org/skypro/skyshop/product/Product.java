@@ -17,16 +17,10 @@ public abstract class Product {
         return productName;
     }
 
-    public void setProduct(String productName) {
-        this.productName = productName;
-    }
-
     //форматирование строки
     @Override
     public String toString() {
         return getProductName() + " : " + getProductPrice();
     }
-
-
-    public abstract void setProduct(String productName, int basePrice);
 }
+
