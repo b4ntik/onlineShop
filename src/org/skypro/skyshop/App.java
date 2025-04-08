@@ -5,6 +5,7 @@ import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.text.Article;
 
 public class App {
     public static void main(String[] args) {
@@ -12,7 +13,8 @@ public class App {
         DiscountedProduct product2 = new DiscountedProduct("Хлеб", 50, 10);
         SimpleProduct product3 = new SimpleProduct("стол", 500);
         FixPriceProduct product4 = new FixPriceProduct("Салфетки");
-
+        Article article1 = new Article("Название", "текст статьи");
+        Article article2 = new Article("Еще одна статья","Еще одна статья");
         ProductBasket basket = new ProductBasket();
 
         //изменяем объекты с парой товар : цена
