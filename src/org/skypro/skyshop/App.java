@@ -1,6 +1,7 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
+import org.skypro.skyshop.finder.SearchEngine;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
@@ -13,9 +14,10 @@ public class App {
         DiscountedProduct product2 = new DiscountedProduct("Хлеб", 50, 10);
         SimpleProduct product3 = new SimpleProduct("стол", 500);
         FixPriceProduct product4 = new FixPriceProduct("Салфетки");
-        Article article1 = new Article("Название", "текст статьи");
-        Article article2 = new Article("Еще одна статья","Еще одна статья");
+        Article article1 = new Article("Это название статьи", "Это текст статьи");
+        Article article2 = new Article("Еще одна статья","Текст еще одной статьи");
         ProductBasket basket = new ProductBasket();
+        SearchEngine finder = new SearchEngine();
 
         //изменяем объекты с парой товар : цена
         product1.setProduct("Топленое молоко", 150);
@@ -57,13 +59,21 @@ public class App {
         basket.cleanBasket();
 
         //печать содержимого пустой корзины
-        basket.printBasketComposition();
+        //basket.printBasketComposition();
 
         //получение стоимости пустой корзины
-        System.out.println(basket.getBasketPrice());
+        //System.out.println(basket.getBasketPrice());
 
         //поиск товара в пустой корзине
-        System.out.println(basket.findProduct(""));
+        //System.out.println(basket.findProduct(""));
+        System.out.println(article1.getProductType());
+        finder.add(article2);
+        finder.add(product1);
+        finder.add(product2);
+
+
+        finder.search("е");
+        finder.printFinderContent();
 
     }
 }
