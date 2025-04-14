@@ -62,18 +62,21 @@ public class App {
         //basket.printBasketComposition();
 
         //получение стоимости пустой корзины
-        //System.out.println(basket.getBasketPrice());
+        System.out.println(basket.getBasketPrice());
 
         //поиск товара в пустой корзине
-        //System.out.println(basket.findProduct(""));
+        System.out.println(basket.findProduct(""));
         System.out.println(article1.getProductType());
         finder.add(article2);
+        finder.add(article1);
         finder.add(product1);
         finder.add(product2);
+        finder.add(product3);
+        finder.add(product4);
 
 
-        finder.search("е");
-        finder.printFinderContent();
+        System.out.println(finder.search("е"));
+        //finder.printFinderContent();
 
     }
 }

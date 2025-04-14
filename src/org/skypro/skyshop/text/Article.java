@@ -1,6 +1,5 @@
 package org.skypro.skyshop.text;
 
-import org.skypro.skyshop.finder.SearchEngine;
 import org.skypro.skyshop.finder.Searchable;
 
 public class Article implements Searchable {

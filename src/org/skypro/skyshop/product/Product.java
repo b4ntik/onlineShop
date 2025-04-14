@@ -36,6 +36,9 @@ public abstract class Product implements Searchable {
         return productName;
 
     }
+   // public void addProduct(){
+
+    //}
 
 }
 
