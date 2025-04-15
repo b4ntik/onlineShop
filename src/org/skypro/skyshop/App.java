@@ -77,5 +77,7 @@ public class App {
 
         System.out.println(finder.search("е"));
 
+        System.out.println(finder.search("хлеб"));
+
     }
 }

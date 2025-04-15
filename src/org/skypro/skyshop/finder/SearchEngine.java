@@ -24,16 +24,17 @@ public class SearchEngine {
 
     public String search(String searchString) {
         String[] searchResult = new String[5];
-        for (int i = 0; i < 5; i++) {
+        int y = 0;
+        for (int i = 0; i < 10; i++) {
             //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру
-            if (finder[i] != null && finder[i].searchTerm().trim().toLowerCase().contains(searchString.toLowerCase())) {
+            if (finder[i] != null && finder[i].searchTerm().trim().toLowerCase().contains(searchString.toLowerCase()) && y<= 5) {
 
-                searchResult[i] = finder[i].getStringRepresentation();
+                        searchResult[y] = finder[i].getStringRepresentation();
+                        y++;
 
             }
         }
         return Arrays.toString(searchResult);
     }
 }
-
 
