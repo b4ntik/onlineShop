@@ -19,26 +19,26 @@ public abstract class Product implements Searchable {
         return productName;
     }
 
-    public String getProductType(){
+    public String getProductType() {
         return "PRODUCT";
     }
+
     public String getStringRepresentation() {
 
         return getProductName() + " - " + getProductType();
     }
+
     //форматирование строки
     @Override
     public String toString() {
         return getProductName() + " : " + getProductPrice();
     }
+
     @Override
-    public String searchTerm(){
+    public String searchTerm() {
         return productName;
 
     }
-   // public void addProduct(){
-
-    //}
 
 }
 

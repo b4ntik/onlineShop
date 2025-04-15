@@ -15,7 +15,7 @@ public class App {
         SimpleProduct product3 = new SimpleProduct("стол", 500);
         FixPriceProduct product4 = new FixPriceProduct("Салфетки");
         Article article1 = new Article("Это название статьи", "Это текст статьи");
-        Article article2 = new Article("Еще одна статья","Текст еще одной статьи");
+        Article article2 = new Article("Еще одна статья", "Текст еще одной статьи");
         ProductBasket basket = new ProductBasket();
         SearchEngine finder = new SearchEngine();
 
@@ -59,14 +59,14 @@ public class App {
         basket.cleanBasket();
 
         //печать содержимого пустой корзины
-        //basket.printBasketComposition();
+        basket.printBasketComposition();
 
         //получение стоимости пустой корзины
         System.out.println(basket.getBasketPrice());
 
         //поиск товара в пустой корзине
         System.out.println(basket.findProduct(""));
-        System.out.println(article1.getProductType());
+
         finder.add(article2);
         finder.add(article1);
         finder.add(product1);
@@ -76,7 +76,6 @@ public class App {
 
 
         System.out.println(finder.search("е"));
-        //finder.printFinderContent();
 
     }
 }
