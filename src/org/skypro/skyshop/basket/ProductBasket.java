@@ -40,17 +40,20 @@ public class ProductBasket {
 
     //печать содержимого корзины
     public void printBasketComposition() {
-
+        int sumSpecial = 0;
         for (Product product : basket) {
             if (product != null) {
 
                 System.out.println(product);
 
             }
-
+            if (product != null && product.isSpecial() == true) {
+                sumSpecial++;
+            }
         }
 
         System.out.println("Итого: " + getBasketPrice());
+        System.out.println("Специальных товаров: " + sumSpecial);
     }
 
     //поиск продукта по имени в корзине, оставил получение стринга для поиска заданного значения
