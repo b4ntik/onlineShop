@@ -47,13 +47,13 @@ public class ProductBasket {
                 System.out.println(product);
 
             }
-            if (product != null&& product.isSpecial() == true ) {
+            if (product != null && product.isSpecial() == true) {
                 sumSpecial++;
             }
         }
 
         System.out.println("Итого: " + getBasketPrice());
-        System.out.println("Специальных товаров: "+ sumSpecial);
+        System.out.println("Специальных товаров: " + sumSpecial);
     }
 
     //поиск продукта по имени в корзине, оставил получение стринга для поиска заданного значения

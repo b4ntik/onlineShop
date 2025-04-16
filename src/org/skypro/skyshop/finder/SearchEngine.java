@@ -27,10 +27,10 @@ public class SearchEngine {
         int y = 0;
         for (int i = 0; i < 10; i++) {
             //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру
-            if (finder[i] != null && finder[i].searchTerm().trim().toLowerCase().contains(searchString.toLowerCase()) && y<= 5) {
+            if (finder[i] != null && finder[i].searchTerm().trim().toLowerCase().contains(searchString.toLowerCase()) && y < 5) {
 
-                        searchResult[y] = finder[i].getStringRepresentation();
-                        y++;
+                searchResult[y] = finder[i].getStringRepresentation();
+                y++;
 
             }
         }
