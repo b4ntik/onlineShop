@@ -7,10 +7,14 @@ public class DiscountedProduct extends Product {
 
     public DiscountedProduct(String productName, int basePrice, int discount) {
         super(productName);
-        this.basePrice = basePrice;
-        this.discount = discount;
-    }
+        if (discount < 0 || discount > 100 || basePrice <= 0) {
+            throw new Exception();
 
+        } else {
+            this.basePrice = basePrice;
+            this.discount = discount;
+        }
+    }
     @Override
     public int getProductPrice() {
         return basePrice - (basePrice * discount / 100);

@@ -5,8 +5,14 @@ import org.skypro.skyshop.finder.Searchable;
 public abstract class Product implements Searchable {
     protected String productName;
 
-    public Product(String productName) {
-        this.productName = productName;
+    public Product(String productName) throws Exception{
+        if (productName.isBlank()) {
+            throw new Exception();
+        } else {
+            this.productName = productName;
+        }
+
+
     }
 
     public boolean isSpecial() {
@@ -27,6 +33,7 @@ public abstract class Product implements Searchable {
 
         return getProductName() + " - " + getProductType();
     }
+
 
     //форматирование строки
     @Override

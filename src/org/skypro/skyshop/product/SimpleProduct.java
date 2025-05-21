@@ -6,9 +6,15 @@ public class SimpleProduct extends Product {
 
     public SimpleProduct(String productName, int productPrice) {
         super(productName);
-        this.productPrice = productPrice;
-    }
+        if (productPrice <= 0) {
+            throw new Exception();
+        }
 
+        else {
+
+            this.productPrice = productPrice;
+        }
+    }
     @Override
     public int getProductPrice() {
         return productPrice;
@@ -20,8 +26,14 @@ public class SimpleProduct extends Product {
     }
 
     public void setProduct(String productName, int productPrice) {
+        if (productName.isBlank()) {
+
+            throw new Exception();
+        } else {
+
         this.productName = productName;
         this.productPrice = productPrice;
+    }
     }
 
 }
