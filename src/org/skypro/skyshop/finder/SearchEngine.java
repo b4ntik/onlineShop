@@ -2,6 +2,10 @@ package org.skypro.skyshop.finder;
 
 import java.util.Arrays;
 
+import org.skypro.skyshop.product.BestResultNotFound;
+import org.skypro.skyshop.product.Exception;
+
+
 public class SearchEngine {
 
     private Searchable[] finder;
@@ -36,5 +40,34 @@ public class SearchEngine {
         }
         return Arrays.toString(searchResult);
     }
+    public Searchable bestSearch(String searchString) throws BestResultNotFound {
+        if (searchString == null || searchString.isBlank()){
+            throw new Exception();
+        }
+       int number = 0;
+       int index = 0;
+       int indexSubstring;
+       Searchable searchResult = null;
+        String subString = searchString;
+        for (int i = 0; i < 10; i++) {
+            if (finder[i] != null) {
+                String str = finder[i].getStringRepresentation();
+                indexSubstring = str.indexOf(subString, index);
+                if (indexSubstring != 0) {
+                    number++;
+                    index = indexSubstring + subString.length();
+                    indexSubstring = str.indexOf(subString, index);
+                }
+
+                searchResult = finder[number];
+            }
+
+            }
+if(searchResult == null){
+    throw new BestResultNotFound();
 }
+         return searchResult;
+    }
+    }
+
 

@@ -2,11 +2,8 @@ package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.finder.SearchEngine;
-import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.product.Exception;
-import org.skypro.skyshop.product.FixPriceProduct;
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.text.Article;
 
 public class App {
@@ -16,10 +13,12 @@ public class App {
     DiscountedProduct product2;
     SimpleProduct product3;
     FixPriceProduct product4;
+    Article article1;
+    Article article2;
         ProductBasket basket = new ProductBasket();
         SearchEngine finder = new SearchEngine();
-        Article article1 = new Article("Это название статьи", "Это текст статьи");
-        Article article2 = new Article("Еще одна статья", "Текст еще одной статьи");
+        article1 = new Article("Это название статьи", "Это текст статьи");
+        article2 = new Article("Еще одна статья", "Текст еще одной статьи");
     try{
         product1 = new SimpleProduct("11", 100);
         product2 = new DiscountedProduct("Хлеб", 50, 10);
@@ -27,8 +26,8 @@ public class App {
         product4 = new FixPriceProduct("Салфетки");
 
         //изменяем объекты с парой товар : цена
-        product1.setProduct(" ", 150);
-        product2.setProduct("Хлеб черный", 40);
+        product1.setProduct("20 ", 150);
+        product2.setProduct("Хлебхлебхлеб черный", 40);
         product3.setProduct("Стул", 500);
 
         //добавка товаров в корзину
@@ -84,7 +83,9 @@ public class App {
         System.out.println(finder.search("е"));
 
         System.out.println(finder.search("хлеб"));
-    } catch (Exception e){
+
+        System.out.println(finder.bestSearch("45"));
+    } catch (Exception | BestResultNotFound e){
         System.out.println(e);
     }
     }

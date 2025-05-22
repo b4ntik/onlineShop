@@ -1,14 +1,20 @@
 package org.skypro.skyshop.text;
 
 import org.skypro.skyshop.finder.Searchable;
+import org.skypro.skyshop.product.Exception;
+
 
 public class Article implements Searchable {
     private String articleTitle;
     private String articleBody;
 
-    public Article(String articleTitle, String articleBody) {
-        this.articleTitle = articleTitle;
-        this.articleBody = articleBody;
+    public Article(String articleTitle, String articleBody) throws Exception {
+        if (articleTitle.isBlank() || articleBody.isBlank()){
+            throw new Exception();
+        } else {
+            this.articleTitle = articleTitle;
+            this.articleBody = articleBody;
+        }
     }
 
     @Override

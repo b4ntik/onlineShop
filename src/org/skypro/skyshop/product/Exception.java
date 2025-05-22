@@ -8,9 +8,12 @@ public class Exception extends IllegalArgumentException {
 
         @Override
         public String toString () {
-            return "Exception - вы пытаетесь добавить продукт с пустым значением";
+            return "Exception - вы пытаетесь добавить продукт с некорректным значением поля";
         }
 
+
+
     }
+
 
 
