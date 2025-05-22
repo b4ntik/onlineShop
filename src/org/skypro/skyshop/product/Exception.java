@@ -6,14 +6,13 @@ public class Exception extends IllegalArgumentException {
         super();
     }
 
-        @Override
-        public String toString () {
-            return "Exception - вы пытаетесь добавить продукт с некорректным значением поля";
-        }
-
-
-
+    @Override
+    public String toString() {
+        return "Exception - вы пытаетесь добавить продукт с некорректным значением поля";
     }
+
+
+}
 
 
 

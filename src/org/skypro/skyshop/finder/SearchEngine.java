@@ -40,34 +40,49 @@ public class SearchEngine {
         }
         return Arrays.toString(searchResult);
     }
+
     public Searchable bestSearch(String searchString) throws BestResultNotFound {
-        if (searchString == null || searchString.isBlank()){
+        if (searchString == null || searchString.isBlank()) {
             throw new Exception();
         }
-       int number = 0;
-       int index = 0;
-       int indexSubstring;
-       Searchable searchResult = null;
+        int number = 0;
+        int index = 0;
+        int indexSubstring;
+        Searchable searchResult = null;
         String subString = searchString;
-        for (int i = 0; i < 10; i++) {
+        Searchable bestResult = null;
+        int maxCount = 0;
+
+        for (int i = 0; i < finder.length; i++) {
             if (finder[i] != null) {
                 String str = finder[i].getStringRepresentation();
-                indexSubstring = str.indexOf(subString, index);
-                if (indexSubstring != 0) {
-                    number++;
-                    index = indexSubstring + subString.length();
-                    indexSubstring = str.indexOf(subString, index);
+                int count = countOccurrences(str, searchString);
+
+                if (count > maxCount) {
+                    maxCount = count;
+                    bestResult = finder[i];
                 }
-
-                searchResult = finder[number];
             }
+        }
 
-            }
-if(searchResult == null){
-    throw new BestResultNotFound();
+        if (bestResult == null) {
+            throw new BestResultNotFound();
+        }
+
+        return bestResult;
+    }
+
+    // Метод для подсчета количества вхождений подстроки
+    private int countOccurrences(String str, String subString) {
+        int count = 0;
+        int index = 0;
+
+        while ((index = str.indexOf(subString, index)) != -1) {
+            count++;
+            index += subString.length(); // Продвигаемся дальше
+        }
+
+        return count;
+    }
 }
-         return searchResult;
-    }
-    }
-
 

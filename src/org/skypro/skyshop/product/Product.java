@@ -5,7 +5,7 @@ import org.skypro.skyshop.finder.Searchable;
 public abstract class Product implements Searchable {
     protected String productName;
 
-    public Product(String productName) throws Exception{
+    public Product(String productName) throws Exception {
         if (productName.isBlank()) {
             throw new Exception();
         } else {

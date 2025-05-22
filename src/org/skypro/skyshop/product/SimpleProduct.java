@@ -8,13 +8,12 @@ public class SimpleProduct extends Product {
         super(productName);
         if (productPrice <= 0) {
             throw new Exception();
-        }
-
-        else {
+        } else {
 
             this.productPrice = productPrice;
         }
     }
+
     @Override
     public int getProductPrice() {
         return productPrice;
@@ -31,9 +30,9 @@ public class SimpleProduct extends Product {
             throw new Exception();
         } else {
 
-        this.productName = productName;
-        this.productPrice = productPrice;
-    }
+            this.productName = productName;
+            this.productPrice = productPrice;
+        }
     }
 
 }

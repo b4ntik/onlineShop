@@ -9,84 +9,89 @@ import org.skypro.skyshop.text.Article;
 public class App {
     public static void main(String[] args) {
 
-    SimpleProduct product1;
-    DiscountedProduct product2;
-    SimpleProduct product3;
-    FixPriceProduct product4;
-    Article article1;
-    Article article2;
+        SimpleProduct product1;
+        DiscountedProduct product2, product5;
+        SimpleProduct product3;
+        FixPriceProduct product4;
+        Article article1;
+        Article article2;
         ProductBasket basket = new ProductBasket();
         SearchEngine finder = new SearchEngine();
         article1 = new Article("Это название статьи", "Это текст статьи");
         article2 = new Article("Еще одна статья", "Текст еще одной статьи");
-    try{
-        product1 = new SimpleProduct("11", 100);
-        product2 = new DiscountedProduct("Хлеб", 50, 10);
-        product3 = new SimpleProduct("стол", 500);
-        product4 = new FixPriceProduct("Салфетки");
+        try {
+            product1 = new SimpleProduct("11", 100);
+            product2 = new DiscountedProduct("Хлеб", 50, 10);
+            product3 = new SimpleProduct("стол", 500);
+            product4 = new FixPriceProduct("Салфетки");
 
-        //изменяем объекты с парой товар : цена
-        product1.setProduct("20 ", 150);
-        product2.setProduct("Хлебхлебхлеб черный", 40);
-        product3.setProduct("Стул", 500);
+            //изменяем объекты с парой товар : цена
+            product1.setProduct("20 ", 150);
+            product2.setProduct("Хлебхлебхлеб черный", 40);
+            product3.setProduct("Стул", 500);
 
-        //добавка товаров в корзину
-        basket.setUserBasket(product1);
-        basket.setUserBasket(product3);
-        basket.setUserBasket(product2);
-        basket.setUserBasket(product4);
+            //добавка товаров в корзину
+            basket.setUserBasket(product1);
+            basket.setUserBasket(product3);
+            basket.setUserBasket(product2);
+            basket.setUserBasket(product4);
 
-        //выводим созданные продукты
-        System.out.println(product1.getProductName() + " : " + product1.getProductPrice());
-        System.out.println(product2.getProductName() + " : " + product2.getProductPrice());
+            //выводим созданные продукты
+            System.out.println(product1.getProductName() + " : " + product1.getProductPrice());
+            System.out.println(product2.getProductName() + " : " + product2.getProductPrice());
 
-        // вывожу состав корзины
-        basket.printBasketComposition();
+            // вывожу состав корзины
+            basket.printBasketComposition();
 
-        //поиск продукта в корзине
-        System.out.println(basket.findProduct("Хлеб черный"));
+            //поиск продукта в корзине
+            System.out.println(basket.findProduct("Хлеб черный"));
 
-        //поиск несуществующего товара в корзине
-        System.out.println(basket.findProduct("zqqwf"));
+            //поиск несуществующего товара в корзине
+            System.out.println(basket.findProduct("zqqwf"));
 
-        //добавление товаров в существующую корзину с превышением лимита
-        basket.setUserBasket(product3);
-        basket.setUserBasket(product3);
-        basket.setUserBasket(product3);
+            //добавление товаров в существующую корзину с превышением лимита
+            basket.setUserBasket(product3);
+            basket.setUserBasket(product3);
+            basket.setUserBasket(product3);
 
-        //вывод состава полной корзины
-        basket.printBasketComposition();
+            //вывод состава полной корзины
+            basket.printBasketComposition();
 
-        //стоимость полной корзины
-        System.out.println(basket.getBasketPrice());
+            //стоимость полной корзины
+            System.out.println(basket.getBasketPrice());
 
-        //очистка корзины
-        basket.cleanBasket();
+            //очистка корзины
+            basket.cleanBasket();
 
-        //печать содержимого пустой корзины
-        basket.printBasketComposition();
+            //печать содержимого пустой корзины
+            basket.printBasketComposition();
 
-        //получение стоимости пустой корзины
-        System.out.println(basket.getBasketPrice());
+            //получение стоимости пустой корзины
+            System.out.println(basket.getBasketPrice());
 
-        //поиск товара в пустой корзине
-        System.out.println(basket.findProduct(""));
+            //поиск товара в пустой корзине
+            System.out.println(basket.findProduct(""));
 
-        finder.add(article2);
-        finder.add(article1);
-        finder.add(product1);
-        finder.add(product2);
-        finder.add(product3);
-        finder.add(product4);
+            finder.add(article2);
+            finder.add(article1);
+            finder.add(product1);
+            finder.add(product2);
+            finder.add(product3);
+            finder.add(product4);
 
 
-        System.out.println(finder.search("е"));
+            System.out.println(finder.search("е"));
 
-        System.out.println(finder.search("хлеб"));
+            System.out.println(finder.search("хлеб"));
 
-        System.out.println(finder.bestSearch("45"));
-    } catch (Exception | BestResultNotFound e){
-        System.out.println(e);
-    }
+            System.out.println(finder.bestSearch("хлеб"));
+
+           // System.out.println(finder.bestSearch("45"));
+
+            product2 = new DiscountedProduct("Какое-то имя", 50, 101);
+
+        } catch (Exception | BestResultNotFound e) {
+            System.out.println(e);
+        }
     }
 }

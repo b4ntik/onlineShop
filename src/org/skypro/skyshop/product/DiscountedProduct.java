@@ -15,6 +15,7 @@ public class DiscountedProduct extends Product {
             this.discount = discount;
         }
     }
+
     @Override
     public int getProductPrice() {
         return basePrice - (basePrice * discount / 100);

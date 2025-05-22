@@ -9,7 +9,7 @@ public class Article implements Searchable {
     private String articleBody;
 
     public Article(String articleTitle, String articleBody) throws Exception {
-        if (articleTitle.isBlank() || articleBody.isBlank()){
+        if (articleTitle.isBlank() || articleBody.isBlank()) {
             throw new Exception();
         } else {
             this.articleTitle = articleTitle;
