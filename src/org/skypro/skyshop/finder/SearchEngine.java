@@ -45,11 +45,7 @@ public class SearchEngine {
         if (searchString == null || searchString.isBlank()) {
             throw new Exception();
         }
-        int number = 0;
-        int index = 0;
-        int indexSubstring;
-        Searchable searchResult = null;
-        String subString = searchString;
+
         Searchable bestResult = null;
         int maxCount = 0;
 
@@ -57,7 +53,7 @@ public class SearchEngine {
             if (finder[i] != null) {
                 String str = finder[i].getStringRepresentation();
                 int count = countOccurrences(str, searchString);
-
+                //поиск значения с наибольшим числом вхождений подстроки
                 if (count > maxCount) {
                     maxCount = count;
                     bestResult = finder[i];
