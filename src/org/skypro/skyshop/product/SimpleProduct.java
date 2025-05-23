@@ -33,6 +33,7 @@ public class SimpleProduct extends Product {
             this.productName = productName;
             this.productPrice = productPrice;
         }
+
     }
 
 }

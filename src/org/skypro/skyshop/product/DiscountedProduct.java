@@ -35,5 +35,6 @@ public class DiscountedProduct extends Product {
         this.productName = productName;
         this.basePrice = basePrice;
     }
+
 }
 

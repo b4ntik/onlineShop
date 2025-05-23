@@ -43,4 +43,5 @@ public class Article implements Searchable {
     public String getArticleBody() {
         return articleBody;
     }
+
 }

@@ -86,7 +86,7 @@ public class App {
 
             System.out.println(finder.bestSearch("хлеб"));
 
-           // System.out.println(finder.bestSearch("45"));
+           //System.out.println(finder.bestSearch("45"));
 
             product2 = new DiscountedProduct("Какое-то имя", 50, 101);
 

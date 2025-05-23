@@ -12,7 +12,6 @@ public abstract class Product implements Searchable {
             this.productName = productName;
         }
 
-
     }
 
     public boolean isSpecial() {

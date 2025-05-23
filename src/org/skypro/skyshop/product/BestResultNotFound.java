@@ -12,4 +12,5 @@ public class BestResultNotFound extends Exception {
     public String toString() {
         return "Exception - ничего не найдено";
     }
+
 }
