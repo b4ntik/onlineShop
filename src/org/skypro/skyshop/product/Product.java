@@ -7,7 +7,7 @@ public abstract class Product implements Searchable {
 
     public Product(String productName) throws Exception {
         if (productName.isBlank()) {
-            throw new Exception();
+            throw new Exception("Не указано наименование продукта");
         } else {
             this.productName = productName;
         }

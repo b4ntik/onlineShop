@@ -3,11 +3,11 @@ package org.skypro.skyshop;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.finder.SearchEngine;
 import org.skypro.skyshop.product.*;
-import org.skypro.skyshop.product.Exception;
+import java.lang.Exception;
 import org.skypro.skyshop.text.Article;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         SimpleProduct product1;
         DiscountedProduct product2, product5;
@@ -84,13 +84,13 @@ public class App {
 
             System.out.println(finder.search("хлеб"));
 
-            System.out.println(finder.bestSearch("хлеб"));
+            //System.out.println(finder.bestSearch("хлеб"));
 
            //System.out.println(finder.bestSearch("45"));
 
             product2 = new DiscountedProduct("Какое-то имя", 50, 101);
 
-        } catch (Exception | BestResultNotFound e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }

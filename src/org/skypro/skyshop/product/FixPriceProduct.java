@@ -1,9 +1,9 @@
 package org.skypro.skyshop.product;
-
+import java.lang.Exception;
 public class FixPriceProduct extends Product {
     private static final int FIX_PRICE = 150;
 
-    public FixPriceProduct(String productName) {
+    public FixPriceProduct(String productName) throws Exception{
         super(productName);
     }
 

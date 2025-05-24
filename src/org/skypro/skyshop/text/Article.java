@@ -1,16 +1,16 @@
 package org.skypro.skyshop.text;
 
 import org.skypro.skyshop.finder.Searchable;
-import org.skypro.skyshop.product.Exception;
 
+import java.lang.Exception;
 
-public class Article implements Searchable {
+public class Article implements Searchable{
     private String articleTitle;
     private String articleBody;
 
     public Article(String articleTitle, String articleBody) throws Exception {
         if (articleTitle.isBlank() || articleBody.isBlank()) {
-            throw new Exception();
+            throw new Exception("Название статьи или сама статья пустые");
         } else {
             this.articleTitle = articleTitle;
             this.articleBody = articleBody;

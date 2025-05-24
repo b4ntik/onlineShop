@@ -3,7 +3,7 @@ package org.skypro.skyshop.finder;
 import java.util.Arrays;
 
 import org.skypro.skyshop.product.BestResultNotFound;
-import org.skypro.skyshop.product.Exception;
+import java.lang.Exception;
 
 
 public class SearchEngine {
@@ -43,7 +43,7 @@ public class SearchEngine {
 
     public Searchable bestSearch(String searchString) throws BestResultNotFound {
         if (searchString == null || searchString.isBlank()) {
-            throw new Exception();
+            throw new BestResultNotFound("Ничего не найдено");
         }
 
         Searchable bestResult = null;
@@ -62,7 +62,7 @@ public class SearchEngine {
         }
 
         if (bestResult == null) {
-            throw new BestResultNotFound();
+            throw new BestResultNotFound("В поиске ничего не найдено");
         }
 
         return bestResult;
