@@ -1,5 +1,7 @@
 package org.skypro.skyshop.product;
+
 import java.lang.Exception;
+
 public class DiscountedProduct extends Product {
 
     private int basePrice;

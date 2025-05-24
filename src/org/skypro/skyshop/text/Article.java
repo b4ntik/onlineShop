@@ -4,7 +4,7 @@ import org.skypro.skyshop.finder.Searchable;
 
 import java.lang.Exception;
 
-public class Article implements Searchable{
+public class Article implements Searchable {
     private String articleTitle;
     private String articleBody;
 

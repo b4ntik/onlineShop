@@ -84,7 +84,7 @@ public class App {
 
             System.out.println(finder.search("хлеб"));
 
-            //System.out.println(finder.bestSearch("хлеб"));
+            System.out.println(finder.bestSearch("хлеб"));
 
            //System.out.println(finder.bestSearch("45"));
 
