@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 import org.skypro.skyshop.product.BestResultNotFound;
 
-import java.lang.Exception;
-
 
 public class SearchEngine {
 

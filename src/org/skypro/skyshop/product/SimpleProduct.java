@@ -1,15 +1,13 @@
 package org.skypro.skyshop.product;
 
-import java.lang.Exception;
-
 public class SimpleProduct extends Product {
     private int productPrice;
 
 
-    public SimpleProduct(String productName, int productPrice) throws Exception {
+    public SimpleProduct(String productName, int productPrice) throws IllegalArgumentException {
         super(productName);
         if (productPrice <= 0) {
-            throw new Exception();
+            throw new IllegalArgumentException("Цена меньше нуля");
         } else {
 
             this.productPrice = productPrice;
@@ -26,10 +24,10 @@ public class SimpleProduct extends Product {
         return getProductName() + " : " + getProductPrice();
     }
 
-    public void setProduct(String productName, int productPrice) throws Exception {
+    public void setProduct(String productName, int productPrice) throws IllegalArgumentException {
         if (productName.isBlank()) {
 
-            throw new Exception();
+            throw new IllegalArgumentException("Вы передаете пустое значение имени");
         } else {
 
             this.productName = productName;

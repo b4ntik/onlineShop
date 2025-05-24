@@ -1,18 +1,19 @@
 package org.skypro.skyshop.product;
 
-import java.lang.Exception;
-
 public class DiscountedProduct extends Product {
 
     private int basePrice;
     private int discount;
 
-    public DiscountedProduct(String productName, int basePrice, int discount) throws Exception {
+    public DiscountedProduct(String productName, int basePrice, int discount) throws IllegalArgumentException {
         super(productName);
-        if (discount < 0 || discount > 100 || basePrice <= 0) {
-            throw new Exception("Некорректно указаны значения в полях");
+        if (discount < 0 || discount > 100 ) {
+            throw new IllegalArgumentException("Некорректна указана скидка");
 
-        } else {
+        } else if (basePrice <= 0) {
+            throw new IllegalArgumentException("Некорректно указана цена");
+
+        }else {
             this.basePrice = basePrice;
             this.discount = discount;
         }

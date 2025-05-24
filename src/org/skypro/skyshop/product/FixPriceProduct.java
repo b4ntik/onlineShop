@@ -1,15 +1,19 @@
 package org.skypro.skyshop.product;
 
-import java.lang.Exception;
-
 public class FixPriceProduct extends Product {
     private static final int FIX_PRICE = 150;
 
-    public FixPriceProduct(String productName) throws Exception {
+    public FixPriceProduct(String productName) throws IllegalArgumentException {
         super(productName);
+
+        if (productName.isBlank()) {
+            throw new IllegalArgumentException("Не указано наименование продукта");
+        } else {
+            this.productName = productName;
+        }
     }
 
-    @Override
+        @Override
     public int getProductPrice() {
         return FIX_PRICE;
     }
