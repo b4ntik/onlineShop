@@ -88,7 +88,8 @@ public class App {
 
            //System.out.println(finder.bestSearch("45"));
 
-            product2 = new DiscountedProduct("Какое-то имя", 50, 101);
+            //product2 = new DiscountedProduct("Какое-то имя", 50, 101);
+            basket.removeObject("хлеб");
 
         } catch (Exception e) {
             System.out.println(e);

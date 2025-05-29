@@ -1,12 +1,16 @@
 package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
+//import org.skypro.skyshop.finder.SearchEngine;
 
+import java.awt.*;
 import java.util.LinkedList;
+
+//import
 
 public class ProductBasket {
 
-    private LinkedList<Product> basket;
+    private LinkedList<Product> basket, removeProducts;
 
     public ProductBasket() {
         basket = new LinkedList<>() ;
@@ -59,10 +63,24 @@ public class ProductBasket {
         }
         return false;
     }
+    //метод удаления из корзины по имени
+    public LinkedList removeObject(String name){
+        removeProducts = new LinkedList<>();
+        for(Product products : basket){
+            if (products.getProductName().equals(name)){
+
+                removeProducts.add(products.getProductName());
+                basket.remove(name);
+            }
+        } return removeProducts;
+
+    }
+
 
     //очистка корзины
     public void cleanBasket() {
         for (Product products : basket) {
+
             basket.remove();
         }
 
