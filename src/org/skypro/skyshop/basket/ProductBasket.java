@@ -2,30 +2,22 @@ package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
 
+import java.util.LinkedList;
+
 public class ProductBasket {
 
-    private Product[] basket;
+    private LinkedList<Product> basket;
 
     public ProductBasket() {
-        basket = new Product[5];
+        basket = new LinkedList<>() ;
     }
 
-    //метод добавления в корзину
+    //метод добавления в корзину - добавляем в лист, проверки на null и полноту корзины нет необходимости выполнять
     public void setUserBasket(Product product) {
-        boolean added = false;
-        for (int i = 0; i < basket.length; i++) {
+        basket.add(product);
 
-            if (basket[i] == null) {
-                basket[i] = product;
-                added = true;
-                break;
             }
-        }
-        if (!added) {
-            System.out.println("Корзина полная, не удалось добавить продукт");
-        }
 
-    }
 
     //метод получения стоимости товаров в корзине
     public int getBasketPrice() {
@@ -70,8 +62,8 @@ public class ProductBasket {
 
     //очистка корзины
     public void cleanBasket() {
-        for (int i = 0; i < basket.length; i++) {
-            basket[i] = null;
+        for (Product products : basket) {
+            basket.remove();
         }
 
     }
