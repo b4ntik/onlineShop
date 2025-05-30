@@ -1,5 +1,6 @@
 package org.skypro.skyshop.finder;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.skypro.skyshop.product.BestResultNotFound;
@@ -7,23 +8,19 @@ import org.skypro.skyshop.product.BestResultNotFound;
 
 public class SearchEngine {
 
-    private Searchable[] finder;
+    private ArrayList<Searchable> finder;
 
     public SearchEngine() {
-        Searchable[] finder = new Searchable[10];
+         finder = new ArrayList<>();
         this.finder = finder;
     }
 
     public void add(Searchable product) {
 
-        for (int i = 0; i < finder.length; i++) {
+            finder.add(product);
 
-            if (finder[i] == null) {
-                finder[i] = product;
-                return;
-            }
         }
-    }
+
 
     public String search(String searchString) {
         String[] searchResult = new String[5];

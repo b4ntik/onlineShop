@@ -27,7 +27,7 @@ public class App {
 
             //изменяем объекты с парой товар : цена
             product1.setProduct("20 ", 150);
-            product2.setProduct("Хлебхлебхлеб черный", 40);
+            product2.setProduct("Хлеб черный", 40);
             product3.setProduct("Стул", 500);
 
             //добавка товаров в корзину
@@ -61,7 +61,7 @@ public class App {
             System.out.println(basket.getBasketPrice());
 
             //очистка корзины
-            basket.cleanBasket();
+            //basket.cleanBasket();
 
             //печать содержимого пустой корзины
             basket.printBasketComposition();
@@ -84,12 +84,13 @@ public class App {
 
             System.out.println(finder.search("хлеб"));
 
-            System.out.println(finder.bestSearch("хлеб"));
+            //System.out.println(finder.bestSearch("хлеб"));
 
            //System.out.println(finder.bestSearch("45"));
 
             //product2 = new DiscountedProduct("Какое-то имя", 50, 101);
-            basket.removeObject("хлеб");
+            System.out.println(basket.removeObject("хлеб"));
+            basket.printBasketComposition();
 
         } catch (Exception e) {
             System.out.println(e);

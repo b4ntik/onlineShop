@@ -4,14 +4,14 @@ import org.skypro.skyshop.product.Product;
 //import org.skypro.skyshop.finder.SearchEngine;
 
 import java.awt.*;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 //import
 
 public class ProductBasket {
-
-    private LinkedList<Product> basket, removeProducts;
-
+    private LinkedList<Product> basket;
+    private LinkedList<String> removedProducts;
     public ProductBasket() {
         basket = new LinkedList<>() ;
     }
@@ -65,25 +65,33 @@ public class ProductBasket {
     }
     //метод удаления из корзины по имени
     public LinkedList removeObject(String name){
-        removeProducts = new LinkedList<>();
-        for(Product products : basket){
-            if (products.getProductName().equals(name)){
-
-                removeProducts.add(products.getProductName());
-                basket.remove(name);
+        removedProducts = new LinkedList<>();
+        synchronized (basket) { // Синхронизация на коллекции
+            Iterator<Product> iterator = basket.iterator();
+            while (iterator.hasNext()) {
+                Product product = iterator.next();
+                if (product.getProductName().equals(name)) {
+                    removedProducts.add(product.getProductName());
+                    iterator.remove(); // Безопасное удаление
+                }
             }
-        } return removeProducts;
-
+        }
+        return removedProducts;
     }
 
 
     //очистка корзины
     public void cleanBasket() {
+        Iterator<Product> iterator = basket.iterator();
         for (Product products : basket) {
 
-            basket.remove();
+            iterator.remove();
         }
 
+    }
+    public String toString(){
+
+        return removedProducts.toString();
     }
 
 }
