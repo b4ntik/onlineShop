@@ -1,7 +1,6 @@
 package org.skypro.skyshop.finder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.skypro.skyshop.product.BestResultNotFound;
 
@@ -24,6 +23,7 @@ public class SearchEngine {
 
     public ArrayList search(String searchString) {
         ArrayList searchResult = new ArrayList<>();
+
         //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
         String cleanSearchString = searchString.trim().toLowerCase();
 

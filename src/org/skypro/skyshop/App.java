@@ -92,7 +92,12 @@ public class App {
 
             //product2 = new DiscountedProduct("Какое-то имя", 50, 101);
 
+            //удаление с помощью нового метода
             System.out.println(basket.removeObject("стул"));
+            System.out.println("__________________________");
+            //удаление несуществующего продукта
+            System.out.println(basket.removeObject("прп"));
+            //состав корзины
             basket.printBasketComposition();
 
 

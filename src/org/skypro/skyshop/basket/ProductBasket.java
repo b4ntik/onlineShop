@@ -73,6 +73,9 @@ public class ProductBasket {
                 if (product != null && product.getProductName().trim().equalsIgnoreCase(name)) {
                     removedProducts.add(product.getProductName());
                     iterator.remove(); // Безопасное удаление
+                } else {
+                    System.out.println("Список пуст");
+                    break;
                 }
             }
         }
