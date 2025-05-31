@@ -41,7 +41,6 @@ public class ProductBasket {
             if (product != null) {
 
                 System.out.println(product);
-
             }
             if (product != null && product.isSpecial() == true) {
                 sumSpecial++;
