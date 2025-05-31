@@ -11,48 +11,52 @@ public class SearchEngine {
     private ArrayList<Searchable> finder;
 
     public SearchEngine() {
-         finder = new ArrayList<>();
-        this.finder = finder;
+        finder = new ArrayList<>();
+        //this.finder = finder;
     }
 
     public void add(Searchable product) {
 
-            finder.add(product);
+        finder.add(product);
 
-        }
+    }
 
 
-    public String search(String searchString) {
-        String[] searchResult = new String[5];
-        int y = 0;
-        for (int i = 0; i < 10; i++) {
-            //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру
-            if (finder[i] != null && finder[i].searchTerm().trim().toLowerCase().contains(searchString.toLowerCase()) && y < 5) {
+    public ArrayList search(String searchString) {
+        ArrayList searchResult = new ArrayList<>();
+        //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
+        String cleanSearchString = searchString.trim().toLowerCase();
 
-                searchResult[y] = finder[i].getStringRepresentation();
-                y++;
+        for (Searchable product : finder) {
+            //System.out.println(product.getProductName());
+            String name = product.getProductName();
+            if (name.trim().toLowerCase().contains(cleanSearchString)) {
+
+                searchResult.add(name);
 
             }
         }
-        return Arrays.toString(searchResult);
+        return searchResult;
     }
 
     public Searchable bestSearch(String searchString) throws BestResultNotFound {
-        if (searchString == null || searchString.isBlank()) {
-            throw new BestResultNotFound("Ничего не найдено");
+        if (searchString.isBlank()) {
+            throw new BestResultNotFound("Пустая строка поиска");
         }
 
         Searchable bestResult = null;
         int maxCount = 0;
+        String cleanSearchString = searchString.trim().toLowerCase();
 
-        for (int i = 0; i < finder.length; i++) {
-            if (finder[i] != null) {
-                String str = finder[i].getStringRepresentation();
-                int count = countOccurrences(str, searchString);
+        for (Searchable product : finder) {
+
+            String str = product.getProductName().trim().toLowerCase();
+            if (str.contains(cleanSearchString)) {
+                int count = countOccurrences(str, cleanSearchString);
                 //поиск значения с наибольшим числом вхождений подстроки
                 if (count > maxCount) {
                     maxCount = count;
-                    bestResult = finder[i];
+                    bestResult = product;
                 }
             }
         }
@@ -77,5 +81,9 @@ public class SearchEngine {
         return count;
     }
 
+    @Override
+    public String toString() {
+        return finder.toString();
+    }
 }
 

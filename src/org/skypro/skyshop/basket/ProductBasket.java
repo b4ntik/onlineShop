@@ -56,7 +56,7 @@ public class ProductBasket {
     public boolean findProduct(String name) {
         if (basket != null) {
             for (Product containProduct : basket) {
-                if (containProduct != null && containProduct.getProductName().equals(name)) {
+                if (containProduct != null && containProduct.getProductName().trim().equalsIgnoreCase(name)) {
                     return true;
                 }
             }
@@ -70,7 +70,7 @@ public class ProductBasket {
             Iterator<Product> iterator = basket.iterator();
             while (iterator.hasNext()) {
                 Product product = iterator.next();
-                if (product.getProductName().equals(name)) {
+                if (product != null && product.getProductName().trim().equalsIgnoreCase(name)) {
                     removedProducts.add(product.getProductName());
                     iterator.remove(); // Безопасное удаление
                 }

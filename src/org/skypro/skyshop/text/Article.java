@@ -43,5 +43,8 @@ public class Article implements Searchable {
     public String getArticleBody() {
         return articleBody;
     }
+    public String getProductName(){
+        return articleTitle;
+    }
 
 }

@@ -28,7 +28,7 @@ public class App {
             //изменяем объекты с парой товар : цена
             product1.setProduct("20 ", 150);
             product2.setProduct("Хлеб черный", 40);
-            product3.setProduct("Стул", 500);
+            product3.setProduct("Стул", 3600);
 
             //добавка товаров в корзину
             basket.setUserBasket(product1);
@@ -42,20 +42,21 @@ public class App {
 
             // вывожу состав корзины
             basket.printBasketComposition();
+            System.out.println("__________________________");
 
             //поиск продукта в корзине
-            System.out.println(basket.findProduct("Хлеб черный"));
+            //System.out.println(basket.findProduct("Хлеб черный"));
 
             //поиск несуществующего товара в корзине
             System.out.println(basket.findProduct("zqqwf"));
+            System.out.println("__________________________");
 
-            //добавление товаров в существующую корзину с превышением лимита
+            //добавление товаров в существующую корзину
             basket.setUserBasket(product3);
-            basket.setUserBasket(product3);
-            basket.setUserBasket(product3);
+
 
             //вывод состава полной корзины
-            basket.printBasketComposition();
+            //basket.printBasketComposition();
 
             //стоимость полной корзины
             System.out.println(basket.getBasketPrice());
@@ -64,14 +65,15 @@ public class App {
             //basket.cleanBasket();
 
             //печать содержимого пустой корзины
-            basket.printBasketComposition();
+           // basket.printBasketComposition();
 
             //получение стоимости пустой корзины
-            System.out.println(basket.getBasketPrice());
+            //System.out.println(basket.getBasketPrice());
 
             //поиск товара в пустой корзине
-            System.out.println(basket.findProduct(""));
+            //System.out.println(basket.findProduct(""));
 
+            //пополнение корзины
             finder.add(article2);
             finder.add(article1);
             finder.add(product1);
@@ -81,16 +83,18 @@ public class App {
 
 
             System.out.println(finder.search("е"));
+            System.out.println("__________________________");
 
-            System.out.println(finder.search("хлеб"));
-
-            //System.out.println(finder.bestSearch("хлеб"));
+            System.out.println(finder.bestSearch("хлеб"));
+            System.out.println("__________________________");
 
            //System.out.println(finder.bestSearch("45"));
 
             //product2 = new DiscountedProduct("Какое-то имя", 50, 101);
-            System.out.println(basket.removeObject("хлеб"));
+
+            System.out.println(basket.removeObject("стул"));
             basket.printBasketComposition();
+
 
         } catch (Exception e) {
             System.out.println(e);

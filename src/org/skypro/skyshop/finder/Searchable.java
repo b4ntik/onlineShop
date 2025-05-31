@@ -12,5 +12,8 @@ public interface Searchable {
     default String getStringRepresentation() {
         return "";
     };
+    default String getProductName(){
+        return "";
+    }
 
 }
