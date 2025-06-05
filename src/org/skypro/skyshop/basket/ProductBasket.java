@@ -4,21 +4,23 @@ import org.skypro.skyshop.product.Product;
 //import org.skypro.skyshop.finder.SearchEngine;
 
 import java.awt.*;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.List;
 
 //import
 
 public class ProductBasket {
-    private LinkedList<Product> basket;
+
+    private Map<String, List<String>> basket = new HashMap<>();
     private LinkedList<String> removedProducts;
+
     public ProductBasket() {
-        basket = new LinkedList<>() ;
+        basket = new HashMap<>();
     }
 
     //метод добавления в корзину - добавляем в лист, проверки на null и полноту корзины нет необходимости выполнять
     public void setUserBasket(Product product) {
-        basket.add(product);
+        basket.put(product.getProductName(), (List<String>) product);
 
             }
 
@@ -62,6 +64,7 @@ public class ProductBasket {
         }
         return false;
     }
+
     //метод удаления из корзины по имени
     public LinkedList removeObject(String name){
         removedProducts = new LinkedList<>();
