@@ -1,9 +1,7 @@
 package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
-//import org.skypro.skyshop.finder.SearchEngine;
 
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 
@@ -11,7 +9,7 @@ import java.util.List;
 
 public class ProductBasket {
 
-    private Map<String, List<String>> basket = new HashMap<>();
+    private Map<String, List<Product>> basket = new HashMap<>();
     private LinkedList<String> removedProducts;
 
     public ProductBasket() {
@@ -20,7 +18,7 @@ public class ProductBasket {
 
     //метод добавления в корзину - добавляем в лист, проверки на null и полноту корзины нет необходимости выполнять
     public void setUserBasket(Product product) {
-        basket.put(product.getProductName(), (List<String>) product);
+        basket.put(product.getProductName(), (List<Product>) product);
 
             }
 
@@ -28,9 +26,14 @@ public class ProductBasket {
     //метод получения стоимости товаров в корзине
     public int getBasketPrice() {
         int sumBasket = 0;
-        for (Product price : basket) {
-            if (price != null) {
-                sumBasket += price.getProductPrice();
+        for (List<Product> productList : basket.values()) {
+            if (productList != null) {
+                for(Product product:productList){
+                    if(product != null){
+                        sumBasket += product.getProductPrice();
+                    }
+                }
+
             }
         }
         return sumBasket;
@@ -39,13 +42,17 @@ public class ProductBasket {
     //печать содержимого корзины
     public void printBasketComposition() {
         int sumSpecial = 0;
-        for (Product product : basket) {
-            if (product != null) {
+        for (List<Product> productList : basket.values()) {
+            if (productList != null) {
 
-                System.out.println(product);
+                System.out.println(productList);
             }
-            if (product != null && product.isSpecial() == true) {
-                sumSpecial++;
+            for (Product product : productList) {
+
+
+                if (product != null && product.isSpecial() == true) {
+                    sumSpecial++;
+                }
             }
         }
 
@@ -56,15 +63,15 @@ public class ProductBasket {
     //поиск продукта по имени в корзине, оставил получение стринга для поиска заданного значения
     public boolean findProduct(String name) {
         if (basket != null) {
-            for (Product containProduct : basket) {
-                if (containProduct != null && containProduct.getProductName().trim().equalsIgnoreCase(name)) {
+            for (List<Product> containProduct : basket.values()) {
+                for(Product products : containProduct){
+                if (containProduct != null && products.getProductName().trim().equalsIgnoreCase(name)) {
                     return true;
                 }
             }
         }
-        return false;
-    }
-
+    }return false;
+}
     //метод удаления из корзины по имени
     public LinkedList removeObject(String name){
         removedProducts = new LinkedList<>();
