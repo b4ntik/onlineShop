@@ -16,7 +16,9 @@ public class ProductBasket {
 
     //метод добавления в корзину - добавляем в лист, проверки на null и полноту корзины нет необходимости выполнять
     public void setUserBasket(Product product) {
-        basket.put(product.getProductName(), (List<Product>) product);
+        List<Product> productList = new ArrayList<>();
+        productList.add(product);
+        basket.put(product.getProductName(), productList);
 
     }
 
