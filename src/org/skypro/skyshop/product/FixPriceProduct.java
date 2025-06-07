@@ -13,7 +13,7 @@ public class FixPriceProduct extends Product {
         }
     }
 
-        @Override
+    @Override
     public int getProductPrice() {
         return FIX_PRICE;
     }

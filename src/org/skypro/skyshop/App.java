@@ -3,7 +3,9 @@ package org.skypro.skyshop;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.finder.SearchEngine;
 import org.skypro.skyshop.product.*;
+
 import java.lang.Exception;
+
 import org.skypro.skyshop.text.Article;
 
 public class App {
@@ -65,7 +67,7 @@ public class App {
             //basket.cleanBasket();
 
             //печать содержимого пустой корзины
-           // basket.printBasketComposition();
+            // basket.printBasketComposition();
 
             //получение стоимости пустой корзины
             //System.out.println(basket.getBasketPrice());
@@ -88,7 +90,7 @@ public class App {
             System.out.println(finder.bestSearch("хлеб"));
             System.out.println("__________________________");
 
-           //System.out.println(finder.bestSearch("45"));
+            //System.out.println(finder.bestSearch("45"));
 
             //product2 = new DiscountedProduct("Какое-то имя", 50, 101);
 
