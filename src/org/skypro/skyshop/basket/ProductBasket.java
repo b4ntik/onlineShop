@@ -75,22 +75,9 @@ public class ProductBasket {
     }
 
     //метод удаления из корзины по имени
-    public LinkedList removeObject(String name) {
-        removedProducts = new LinkedList<>();
-        synchronized (basket) { // Синхронизация на коллекции
-            Iterator<Map.Entry<String, List<Product>>> iterator = basket.entrySet().iterator();
-            while (iterator.hasNext()) {
-                Map.Entry<String, List<Product>> entry = iterator.next();
-                if (entry != null && entry.getValue().equals(name.trim().toLowerCase())) {
-                    removedProducts.add(entry.getValue().toString());
-                    iterator.remove(); // Безопасное удаление
-                } else {
-                    System.out.println("Список пуст");
-                    break;
-                }
-            }
-        }
-        return removedProducts;
+    public List<Product> removeObject(String name) {
+
+        return basket.remove(name);
     }
 
 
