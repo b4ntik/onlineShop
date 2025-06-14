@@ -8,7 +8,7 @@ import java.util.List;
 public class ProductBasket {
 
     private Map<String, List<Product>> basket = new HashMap<>();
-    private LinkedList<String> removedProducts;
+    private List<String> removedProducts;
 
     public ProductBasket() {
         basket = new HashMap<>();
@@ -49,7 +49,6 @@ public class ProductBasket {
             }
             for (Product product : productList) {
 
-
                 if (product != null && product.isSpecial() == true) {
                     sumSpecial++;
                 }
@@ -75,21 +74,34 @@ public class ProductBasket {
     }
 
     //метод удаления из корзины по имени
-    public List<Product> removeObject(String name) {
+    public List<String> removeObject(String name) {
 
-        return basket.remove(name);
+       removedProducts = new LinkedList<String>();//Add commentMore actions
+        synchronized (basket) { // Синхронизация на коллекции
+            Iterator<Map.Entry<String, List<Product>>> iterator = basket.entrySet().iterator();
+
+            while (iterator.hasNext()) {
+                Map.Entry<String, List<Product>> entry = iterator.next();
+                List<Product> valueList = entry.getValue();
+                if (valueList != null ) {
+                    for (Product product : valueList){
+                        if (product.getProductName().trim().toLowerCase().equals(name.trim().toLowerCase())){
+                            removedProducts.add(entry.getKey());
+                            iterator.remove();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return removedProducts;
     }
 
 
     //очистка корзины
     public void cleanBasket() {
         basket.clear();
-    }
-
-
-    public String toString() {
-
-        return removedProducts.toString();
     }
 
 }
