@@ -1,6 +1,7 @@
 package org.skypro.skyshop.text;
 
 import org.skypro.skyshop.finder.Searchable;
+import org.skypro.skyshop.product.Product;
 
 import java.lang.Exception;
 
@@ -45,6 +46,27 @@ public class Article implements Searchable {
     }
     public String getProductName(){
         return articleTitle;
+    }
+
+    @Override
+    public boolean equals(Product product) {
+        return false;
+    }
+
+
+    //переопределение equals для статей
+    @Override
+    public boolean equals(Article article){
+        if (this == article) return true;
+        if (article == null || getClass() != article.getClass()) return false;
+        Article that = (Article) article;
+        return articleTitle.equals(that.articleTitle);
+    }
+    //переопределение hashCode для статей
+    @Override
+    public int hashCode(){
+
+        return 0;
     }
 
 }

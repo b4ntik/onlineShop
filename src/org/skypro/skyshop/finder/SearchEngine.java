@@ -1,19 +1,16 @@
 package org.skypro.skyshop.finder;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 import org.skypro.skyshop.product.BestResultNotFound;
 
 
 public class SearchEngine {
 
-    private ArrayList<Searchable> finder;
+    private HashSet<Searchable> finder;
 
     public SearchEngine() {
-        finder = new ArrayList<>();
+        finder = new HashSet<>();
 
     }
 
@@ -24,8 +21,14 @@ public class SearchEngine {
     }
 
 
-    public Map search(String searchString) {
-        SortedMap<String, Searchable> searchResult = new TreeMap<>();
+    public Set search(String searchString){
+        SortedSet<Searchable> searchResult = new TreeSet<>(new Comparator<Searchable>() {
+            @Override
+            public int compare(Searchable o1, Searchable o2) {
+
+                return o1.getProductName().length();
+            }
+        });
 
         //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
         String cleanSearchString = searchString.trim().toLowerCase();
@@ -35,10 +38,10 @@ public class SearchEngine {
             String name = product.getProductName();
             if (name.trim().toLowerCase().contains(cleanSearchString)) {
 
-                searchResult.put(name, product);
-
+                searchResult.add(product);
             }
         }
+
         return searchResult;
     }
 
@@ -88,5 +91,6 @@ public class SearchEngine {
     public String toString() {
         return finder.toString();
     }
-}
+
+    }
 

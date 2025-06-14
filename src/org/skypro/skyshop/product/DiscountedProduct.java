@@ -1,5 +1,7 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.text.Article;
+
 public class DiscountedProduct extends Product {
 
     private int basePrice;
@@ -18,6 +20,10 @@ public class DiscountedProduct extends Product {
             this.discount = discount;
         }
     }
+    public void setProduct(String productName, int basePrice) {
+        this.productName = productName;
+        this.basePrice = basePrice;
+    }
 
     @Override
     public int getProductPrice() {
@@ -34,10 +40,19 @@ public class DiscountedProduct extends Product {
         return true;
     }
 
-    public void setProduct(String productName, int basePrice) {
-        this.productName = productName;
-        this.basePrice = basePrice;
+    @Override
+    public boolean equals(Product product){
+        if (this == product) return true;
+        if (product == null || getClass() != product.getClass()) return false;
+        Product that = (Product) product;
+        return productName.equals(that.productName);
     }
+
+    @Override
+    public boolean equals(Article article) {
+        return false;
+    }
+
 
 }
 

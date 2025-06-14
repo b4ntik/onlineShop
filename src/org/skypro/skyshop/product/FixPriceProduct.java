@@ -1,5 +1,7 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.text.Article;
+
 public class FixPriceProduct extends Product {
     private static final int FIX_PRICE = 150;
 
@@ -28,4 +30,8 @@ public class FixPriceProduct extends Product {
         return true;
     }
 
+    @Override
+    public boolean equals(Article article) {
+        return false;
+    }
 }
