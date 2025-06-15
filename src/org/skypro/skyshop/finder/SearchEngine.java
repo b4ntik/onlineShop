@@ -21,16 +21,16 @@ public class SearchEngine {
     }
 
 
-    public Set search(String searchString){
+    public Set search(String searchString) {
         SortedSet<Searchable> searchResult = new TreeSet<>(new Comparator<Searchable>() {
             @Override
             public int compare(Searchable o1, Searchable o2) {
                 //сравнение длин имен продуктов в цикле
-                int lenCompare = Integer.compare(o1.getProductName().length(),o2.getProductName().length());
+                int lenCompare = Integer.compare(o1.getProductName().length(), o2.getProductName().length());
                 //если длины равны, сравниваем по имени
-                    if(lenCompare !=0){
-                        return lenCompare;
-                    }
+                if (lenCompare != 0) {
+                    return lenCompare;
+                }
                 return o1.getProductName().compareTo(o2.getProductName());
             }
         });
@@ -97,5 +97,5 @@ public class SearchEngine {
         return finder.toString();
     }
 
-    }
+}
 

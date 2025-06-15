@@ -20,6 +20,7 @@ public class DiscountedProduct extends Product {
             this.discount = discount;
         }
     }
+
     public void setProduct(String productName, int basePrice) {
         this.productName = productName;
         this.basePrice = basePrice;
@@ -41,7 +42,7 @@ public class DiscountedProduct extends Product {
     }
 
     @Override
-    public boolean equals(Product product){
+    public boolean equals(Product product) {
         if (this == product) return true;
         if (product == null || getClass() != product.getClass()) return false;
         Product that = (Product) product;

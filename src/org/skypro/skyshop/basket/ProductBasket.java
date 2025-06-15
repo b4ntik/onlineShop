@@ -76,16 +76,16 @@ public class ProductBasket {
     //метод удаления из корзины по имени
     public List<String> removeObject(String name) {
 
-       removedProducts = new LinkedList<String>();
+        removedProducts = new LinkedList<String>();
         synchronized (basket) { // Синхронизация на коллекции
             Iterator<Map.Entry<String, List<Product>>> iterator = basket.entrySet().iterator();
 
             while (iterator.hasNext()) {
                 Map.Entry<String, List<Product>> entry = iterator.next();
                 List<Product> valueList = entry.getValue();
-                if (valueList != null ) {
-                    for (Product product : valueList){
-                        if (product.getProductName().trim().toLowerCase().equals(name.trim().toLowerCase())){
+                if (valueList != null) {
+                    for (Product product : valueList) {
+                        if (product.getProductName().trim().toLowerCase().equals(name.trim().toLowerCase())) {
                             removedProducts.add(entry.getKey());
                             iterator.remove();
                             break;

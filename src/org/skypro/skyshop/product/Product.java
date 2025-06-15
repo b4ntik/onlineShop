@@ -47,9 +47,10 @@ public abstract class Product implements Searchable {
         return productName;
 
     }
+
     //переопределение equals для продуктов, сравнение по имени и классу продукта
     @Override
-    public boolean equals(Product product){
+    public boolean equals(Product product) {
         if (this == product) return true;
         if (product == null || getClass() != product.getClass()) return false;
         Product that = (Product) product;
@@ -58,7 +59,7 @@ public abstract class Product implements Searchable {
 
     //переопределение hashCode для продуктов с полями Имя продукта и класс продукта
     @Override
-    public int hashCode(){
+    public int hashCode() {
 
         return Objects.hash(productName, getClass());
 
