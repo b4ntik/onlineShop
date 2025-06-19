@@ -1,6 +1,7 @@
 package org.skypro.skyshop.finder;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import org.skypro.skyshop.product.BestResultNotFound;
 
@@ -21,33 +22,22 @@ public class SearchEngine {
     }
 
 
-    public Set search(String searchString) {
-        SortedSet<Searchable> searchResult = new TreeSet<>(new Comparator<Searchable>() {
-            @Override
-            public int compare(Searchable o1, Searchable o2) {
-                //сравнение длин имен продуктов в цикле
-                int lenCompare = Integer.compare(o1.getProductName().length(), o2.getProductName().length());
-                //если длины равны, сравниваем по имени
-                if (lenCompare != 0) {
-                    return lenCompare;
-                }
-                return o1.getProductName().compareTo(o2.getProductName());
-            }
-        });
-
+    public Set<Searchable> search(String searchString) {
         //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
         String cleanSearchString = searchString.trim().toLowerCase();
 
-        for (Searchable product : finder) {
-            //System.out.println(product.getProductName());
-            String name = product.getProductName();
-            if (name.trim().toLowerCase().contains(cleanSearchString)) {
+        Comparator<Searchable> comparator = Comparator
+                //сравнение длин названий товаров
+                .comparingInt((Searchable s) -> s.getProductName().length())
+                .thenComparing(Searchable::getProductName);
 
-                searchResult.add(product);
-            }
-        }
-
-        return searchResult;
+        return finder.stream()
+                //фильтрация по содержанию поисковой строки в продуктовой корзине
+                .filter(product -> product.getProductName().trim().toLowerCase().contains(cleanSearchString))
+                //сортировка по длине имен
+                .sorted(comparator)
+                //собираю отсортированные результаты
+                .collect(Collectors.toCollection(() -> new TreeSet<>(comparator)));
     }
 
     public Searchable bestSearch(String searchString) throws BestResultNotFound {
