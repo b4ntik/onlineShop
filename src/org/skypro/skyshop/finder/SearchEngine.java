@@ -26,6 +26,7 @@ public class SearchEngine {
         //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
         String cleanSearchString = searchString.trim().toLowerCase();
 
+        //компаратор для списка сравнения по длинам строки
         Comparator<Searchable> comparator = Comparator
                 //сравнение длин названий товаров
                 .comparingInt((Searchable s) -> s.getProductName().length())
