@@ -21,7 +21,6 @@ public class SearchEngine {
 
     }
 
-
     public Set<Searchable> search(String searchString) {
         //с помощью trim и lowerCase убираю лишние пробелы и привожу к нижнему регистру поисковую строку
         String cleanSearchString = searchString.trim().toLowerCase();

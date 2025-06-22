@@ -22,41 +22,36 @@ public class ProductBasket {
 
     }
 
-
     //метод получения стоимости товаров в корзине
     public int getBasketPrice() {
-        int sumBasket = 0;
-        for (List<Product> productList : basket.values()) {
-            if (productList != null) {
-                for (Product product : productList) {
-                    if (product != null) {
-                        sumBasket += product.getProductPrice();
-                    }
-                }
-
-            }
-        }
-        return sumBasket;
+        return basket.values().stream()
+                .filter(Objects::nonNull)
+                .flatMap(List::stream)
+                .filter(Objects::nonNull)
+                .mapToInt(Product::getProductPrice)
+                .sum();
     }
 
     //печать содержимого корзины
     public void printBasketComposition() {
-        int sumSpecial = 0;
-        for (List<Product> productList : basket.values()) {
-            if (productList != null) {
 
+        basket.values().forEach(productList-> {
+            if (productList != null){
                 System.out.println(productList);
             }
-            for (Product product : productList) {
-
-                if (product != null && product.isSpecial() == true) {
-                    sumSpecial++;
-                }
-            }
-        }
-
+        });
+        int sumSpecial = getSpecialCount();
         System.out.println("Итого: " + getBasketPrice());
         System.out.println("Специальных товаров: " + sumSpecial);
+    }
+
+    //метод для подсчета специальных товаров в корзине
+    private int getSpecialCount() {
+        return (int) basket.values().stream()
+                .filter(Objects::nonNull)
+                .flatMap(List::stream)
+                .filter(product -> product != null && product.isSpecial())
+                .count();
     }
 
     //поиск продукта по имени в корзине, оставил получение стринга для поиска заданного значения
@@ -103,6 +98,7 @@ public class ProductBasket {
     public void cleanBasket() {
         basket.clear();
     }
+
 
 }
 
